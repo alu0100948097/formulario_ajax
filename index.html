@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#button").click(function(){
+                    $.getJSON("https://jsonplaceholder.typicode.com/comments?postId="+$('#number').val(), function(salida){
+                        $.each(salida, function(i, elemento){
+                            $("table.table").append("<tr><td>" + elemento.postId + "</td><td>" + elemento.id + "</td><td>" + elemento.name + "</td><td>" + elemento.email + "</td><td>" + elemento.body + "</td></tr>");
+                        });
+                    });
+                });
+
+
+            });
+
+        </script>
+    </head>
+    <body>
+
+        <h1>Formulario Ajax</h1>
+		<h3>Alumno: Sergio Ferrera de Diego</h3>
+
+        Id a mostrar: 
+        <input type="number" id="number" name="number">
+        <button id="button">Enviar</button>
+
+        <table class="table"></table>
+		
+    </body>
+</html>
